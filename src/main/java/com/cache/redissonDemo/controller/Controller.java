@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/posts")
 @RequiredArgsConstructor
@@ -18,6 +20,11 @@ public class Controller {
     @GetMapping("/{id}")
     public ResponseEntity<Post> getObject(@PathVariable String id) throws JsonProcessingException {
         return new ResponseEntity<>(postRepository.findById(id), HttpStatus.OK);
+    }
+
+    @GetMapping()
+    public ResponseEntity<List<Post>> getAll() throws JsonProcessingException {
+        return new ResponseEntity<>(postRepository.getAll(), HttpStatus.OK);
     }
 
     @PostMapping
