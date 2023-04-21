@@ -10,7 +10,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 public class Page {
-    private List<Page> posts;
+    private List<Post> posts;
     private Integer totalPage;
     private Integer currentPage;
     private Long total;

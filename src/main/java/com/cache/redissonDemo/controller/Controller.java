@@ -28,8 +28,8 @@ public class Controller {
     }
 
     @PostMapping
-    public ResponseEntity<String> putObject(@RequestBody Post post) throws JsonProcessingException {
-        return new ResponseEntity<>(postRepository.put(post, 60), HttpStatus.CREATED);
+    public ResponseEntity<Post> putObject(@RequestBody Post post) throws JsonProcessingException {
+        return new ResponseEntity<>(postRepository.save(post), HttpStatus.CREATED);
     }
 
     @DeleteMapping("{id}")
